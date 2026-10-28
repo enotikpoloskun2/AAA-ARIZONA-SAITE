@@ -174,7 +174,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
             <div class="info-strip"><svg><use href="#shield"/></svg><p>Изменения доступны только аккаунтам с правами администратора. Они публикуются на сайте после нажатия «Сохранить изменения».</p></div>
           </section>
           <section class="panel" id="panel-links" hidden aria-labelledby="linksTitle"><div class="section-intro"><span class="eyebrow">НОВАЯ СБОРКА. ОДНА ССЫЛКА.</span><h2 id="linksTitle">Загрузка и связь</h2><p>Обновляй ссылки без редактирования HTML.</p></div><div class="card form-card"><div class="card-heading"><span class="small-icon"><svg><use href="#download"/></svg></span><div><h3>Файл для скачивания</h3><p>Ссылка должна вести на загруженный APK или страницу загрузки.</p></div></div><label for="downloadUrl">Ссылка на файл</label><input id="downloadUrl" name="downloadUrl" type="url" required maxlength="2048" placeholder="https://…" spellcheck="false"><span class="field-hint">Только HTTPS. Сначала загрузи файл на файловый хостинг, затем вставь его адрес.</span><div class="field-grid"><div><label for="downloadVersion">Название сборки</label><input id="downloadVersion" name="downloadVersion" required maxlength="40" placeholder="Например, версия 2.4"></div><div><label for="sizeLabel">Размер файла</label><input id="sizeLabel" name="sizeLabel" required maxlength="30" placeholder="≈ 178 МБ"></div></div><label for="downloadName">Текст кнопки скачивания</label><input id="downloadName" name="downloadName" required maxlength="48" placeholder="Скачать лаунчер"></div>
-            <div class="card form-card"><div class="card-heading"><span class="small-icon amber"><svg><use href="#out"/></svg></span><div><h3>Поддержка и сообщество</h3><p>Эти адреса обновятся во всех соответствующих кнопках сайта.</p></div></div><label for="donationUrl">Поддержать автора</label><input id="donationUrl" name="donationUrl" type="url" required maxlength="2048" spellcheck="false"><label for="channelUrl">Telegram-канал с новостями</label><input id="channelUrl" name="channelUrl" type="url" required maxlength="2048" spellcheck="false"><label for="contactUrl">Связаться с автором</label><input id="contactUrl" name="contactUrl" type="url" required maxlength="2048" spellcheck="false"></div>
+            <div class="card form-card"><div class="card-heading"><span class="small-icon"><svg><use href="#download"/></svg></span><div><h3>Лаунчер с Tools на новом движке</h3><p>Отдельная загрузка рядом с основной кнопкой на сайте.</p></div></div><label for="newEngineDownloadUrl">Ссылка на лаунчер с Tools на новом движке <span class="optional">необязательно</span></label><input id="newEngineDownloadUrl" name="newEngineDownloadUrl" type="url" maxlength="2048" placeholder="https://…" spellcheck="false"><span class="field-hint">Вставь HTTPS-ссылку и нажми «Сохранить изменения». Пока поле пустое, на кнопке будет «Скоро». Чтобы снова выключить загрузку, очисти поле и сохрани.</span></div>
+<div class="card form-card"><div class="card-heading"><span class="small-icon amber"><svg><use href="#out"/></svg></span><div><h3>Поддержка и сообщество</h3><p>Эти адреса обновятся во всех соответствующих кнопках сайта.</p></div></div><label for="donationUrl">Поддержать автора</label><input id="donationUrl" name="donationUrl" type="url" required maxlength="2048" spellcheck="false"><label for="channelUrl">Telegram-канал с новостями</label><input id="channelUrl" name="channelUrl" type="url" required maxlength="2048" spellcheck="false"><label for="contactUrl">Связаться с автором</label><input id="contactUrl" name="contactUrl" type="url" required maxlength="2048" spellcheck="false"></div>
           </section>
           <section class="panel" id="panel-maintenance" hidden aria-labelledby="maintenanceTitleLabel"><div class="section-intro"><span class="eyebrow">ДАЖЕ ПАУЗА МОЖЕТ БЫТЬ КРАСИВОЙ</span><h2 id="maintenanceTitleLabel">Технические работы</h2><p>Сообщи посетителям, что происходит, и когда ждать возвращения.</p></div><div class="maintenance-grid"><div class="card form-card"><label class="switch-row" for="maintenance"><span><strong>Режим технических работ</strong><small>Вместо сайта появится экран с твоим сообщением.</small></span><input type="checkbox" id="maintenance" name="maintenance" role="switch"></label><div class="field-divider"></div><label for="maintenanceTitle">Заголовок</label><input id="maintenanceTitle" name="maintenanceTitle" required maxlength="100"><label for="maintenanceMessage">Сообщение посетителям</label><textarea id="maintenanceMessage" name="maintenanceMessage" required maxlength="700" rows="5"></textarea><label for="maintenanceEta">Когда вернёмся <span class="optional">необязательно</span></label><input id="maintenanceEta" name="maintenanceEta" maxlength="80" placeholder="Например, сегодня к 20:00 МСК"><span class="field-hint">Это сообщение, а не таймер автоматического открытия.</span></div><div class="maintenance-side"><div class="maintenance-preview"><span class="preview-label">ТАК УВИДЯТ ПОСЕТИТЕЛИ</span><div class="preview-logo"><svg><use href="#logo"/></svg></div><span class="maintenance-tag"><i></i>Технические работы</span><h3 id="previewTitle">Скоро вернёмся.</h3><p id="previewMessage"></p><span id="previewEta" hidden></span><span class="preview-link">Следить за новостями ↗</span></div><div class="info-strip"><svg><use href="#shield"/></svg><p>Админка останется доступна. Для открытия сайта выключи режим и сохрани изменения.</p></div></div></div></section>
         </form>
@@ -221,6 +222,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
   const defaults = Object.freeze({
     schemaVersion: 1, revision: 0,
     downloadUrl: 'https://litter.catbox.moe/r4b0s53cz5kln1sh.apk',
+    newEngineDownloadUrl: '',
     downloadName: 'Скачать лаунчер', downloadVersion: 'Актуальная сборка', sizeLabel: '≈ 178 МБ',
     donationUrl: 'https://www.donationalerts.com/r/enotik_poloskun2',
     channelUrl: 'https://t.me/AToolsARM64', contactUrl: 'https://t.me/enotwwwww',
@@ -229,14 +231,17 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     maintenanceEta: '', updatedAt: 0
   });
   const limits = Object.freeze({ downloadName: 48, downloadVersion: 40, sizeLabel: 30, maintenanceTitle: 100, maintenanceMessage: 700, maintenanceEta: 80 });
-  const urlFields = ['downloadUrl', 'donationUrl', 'channelUrl', 'contactUrl'];
+  const urlFields = ['downloadUrl', 'newEngineDownloadUrl', 'donationUrl', 'channelUrl', 'contactUrl'];
   function safeUrl(value) {
     if (typeof value !== 'string' || value.length > 2048 || !/^https:\/\/[A-Za-z0-9][A-Za-z0-9.-]*(:[0-9]{1,5})?([/?#][A-Za-z0-9._~:/?#@!$&'()*+,;=%-]*)?$/.test(value)) return false;
     try { const url = new URL(value); return url.protocol === 'https:' && !!url.hostname && !url.username && !url.password; }
     catch { return false; }
   }
   function validate(value) {
-    for (const key of urlFields) if (!safeUrl(value[key])) return { field: key, message: 'Укажи полную HTTPS-ссылку без пробелов и пароля в адресе.' };
+    for (const key of urlFields) {
+      if (key === 'newEngineDownloadUrl' && value[key] === '') continue;
+      if (!safeUrl(value[key])) return { field: key, message: 'Укажи полную HTTPS-ссылку без пробелов и пароля в адресе.' };
+    }
     for (const [key, max] of Object.entries(limits)) {
       if (typeof value[key] !== 'string' || value[key].length > max || (key !== 'maintenanceEta' && !value[key].trim())) return { field: key, message: `Заполни поле: не больше ${max} символов.` };
     }
